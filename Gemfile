@@ -31,6 +31,7 @@ gem 'jquery-rails'
 
 gem 'rspec-rails', :group => [:test, :development]
 group :test do
+  gem 'webrat'
   gem 'guard-rspec'
   gem 'spork', "~> 0.9.0.rc"
   gem 'guard-spork'
