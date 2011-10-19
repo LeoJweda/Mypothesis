@@ -5,6 +5,6 @@ describe "pages/about.html.haml" do
   
   it "should have the right title" do
     render :file => "pages/about.html.haml", :layout => "layouts/application.html.haml"
-    assert_select('title', "Mypothesis | About")
+    assert_select('title', 'Mypothesis: Your Theory | About')
   end
 end
