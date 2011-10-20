@@ -31,11 +31,13 @@ gem 'jquery-rails'
 
 gem 'rspec-rails', :group => [:test, :development]
 group :test do
+  gem 'webrat'
+  gem 'capybara'
   gem 'guard-rspec'
-  gem 'spork', "~> 0.9.0.rc"
+  gem 'spork'
   gem 'guard-spork'
   gem 'rb-fsevent'
-  gem 'growl' # or gem 'growl_notify'
+  gem 'ruby_gntp'
   gem 'haml-rails'
 end
 
