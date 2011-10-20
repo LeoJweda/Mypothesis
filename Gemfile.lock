@@ -56,8 +56,7 @@ GEM
     execjs (1.2.9)
       multi_json (~> 1.0)
     ffi (1.0.9)
-    growl (1.0.3)
-    guard (0.8.2)
+    guard (0.8.7)
       thor (~> 0.14.6)
     guard-rspec (0.4.5)
       guard (>= 0.4.0)
@@ -127,6 +126,7 @@ GEM
       activesupport (~> 3.0)
       railties (~> 3.0)
       rspec (~> 2.6.0)
+    ruby_gntp (0.3.4)
     rubyzip (0.9.4)
     sass (3.1.10)
     sass-rails (3.1.4)
@@ -172,7 +172,6 @@ PLATFORMS
 DEPENDENCIES
   capybara
   coffee-rails (~> 3.1.0)
-  growl
   guard-rspec
   guard-spork
   haml
@@ -182,8 +181,9 @@ DEPENDENCIES
   rails (= 3.1.0)
   rb-fsevent
   rspec-rails
+  ruby_gntp
   sass-rails (~> 3.1.0)
-  spork (~> 0.9.0.rc)
+  spork
   sqlite3
   thin
   uglifier
