@@ -1,0 +1,63 @@
+body {
+  font-size: 62.5%;
+  font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+}
+
+.container {
+  background-color: #fff;
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+header {
+  padding: 1em;
+}
+
+nav {
+  float: right;
+  
+  ul li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 0.2em 0;
+  }
+}
+
+#radio {
+  margin-bottom: 1em;
+}
+
+section {
+  margin-top: 1em;
+  padding: 20px;
+  width: 740px;
+}
+
+.panel {
+  margin-bottom: 1em;
+  position: relative;
+  width: auto;
+}
+
+.panel-header {
+  padding: 1em;
+}
+
+.indented {
+  margin-left: 3em;
+}
+
+footer {
+  padding: 1em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+#mixpanel {
+  img {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}

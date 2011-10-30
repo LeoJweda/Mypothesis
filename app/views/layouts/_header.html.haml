@@ -1,0 +1,8 @@
+%header.ui-widget-header.ui-corner-all.ui-helper-clearfix
+  - logo = image_tag("logo.png", :alt => "Mypothesis")
+  = link_to logo, root_path
+  
+  %nav
+    %ul
+      %li= link_to "Home", root_path, :class => "navButton"
+      %li= link_to "Sign in", "#", :class => "navButton"

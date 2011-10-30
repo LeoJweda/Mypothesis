@@ -1,9 +1,30 @@
 !!! 5
 %html
   %head
-    %title= 'Mypothesis: Your Theory' + yield(:title) 
-    = stylesheet_link_tag    "application"
-    = javascript_include_tag "application"
+    %meta{:charset => 'utf-8'}
+    %meta{:name => 'google-site-verification', :content => 'MUZBQ56Q9LOiv94E0y0tGp28wjSXLtJwqFmwoNsxe-8'}
+    %title= 'Mypothesis: Your Theory' + yield(:title)
+    = render 'layouts/stylesheets'
     = csrf_meta_tags
+    :javascript
+      var mpq = [];
+      mpq.push(["init", "1cd20d560cc22d723ddf10601e17c09b"]);
+      (function(){var b,a,e,d,c;b=document.createElement("script");b.type="text/javascript";b.async=true;b.src=(document.location.protocol==="https:"?"https:":"http:")+"//api.mixpanel.com/site_media/js/api/mixpanel.js";a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a);e=function(f){return function(){mpq.push([f].concat(Array.prototype.slice.call(arguments,0)))}};d=["init","track","track_links","track_forms","register","register_once","identify","name_tag","set_config"];for(c=0;c<d.length;c++){mpq[d[c]]=e(d[c])}})();
+      
   %body
-    = yield
+    .container
+      = render 'layouts/header'
+      
+      - flash.each do |key, msg|
+        %div{:class => "ui-widget #{key}"}
+          %div{:class => "ui-state-#{style_for_key(key)} ui-corner-all", :style => 'margin-top: 20px; padding: 0 .7em;'}
+            %p
+              %span{:class => "ui-icon ui-icon-#{icon_for_key(key)}", :style => 'float: left; margin-right: .3em;'}
+              = msg
+              
+      %section
+        = yield
+        
+      = render 'layouts/footer'
+      
+    = render 'layouts/javascripts'
