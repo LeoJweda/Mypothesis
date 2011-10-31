@@ -44,3 +44,4 @@ end
 
 gem 'thin'
 gem 'haml'
+gem 'devise'
