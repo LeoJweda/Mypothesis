@@ -45,3 +45,4 @@ end
 gem 'thin'
 gem 'haml'
 gem 'devise'
+gem 'omniauth'
