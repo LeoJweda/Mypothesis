@@ -39,7 +39,10 @@ group :test do
   gem 'rb-fsevent'
   gem 'ruby_gntp'
   gem 'haml-rails'
+  gem 'guard-livereload'
 end
 
 gem 'thin'
 gem 'haml'
+gem 'devise'
+gem 'omniauth'

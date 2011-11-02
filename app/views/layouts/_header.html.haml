@@ -5,4 +5,9 @@
   %nav
     %ul
       %li= link_to "Home", root_path, :class => "navButton"
-      %li= link_to "Sign in", "#", :class => "navButton"
+      - if user_signed_in?
+        %li
+          = link_to current_user.email, "#", :id => "profile"
+          = link_to "Select an action", destroy_user_session_path, :method => :delete, :id => "select"
+      - else
+        %li= link_to "Sign in", new_user_session_url, :class => "navButton"
