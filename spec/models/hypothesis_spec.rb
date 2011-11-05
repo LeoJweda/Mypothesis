@@ -24,4 +24,22 @@ describe Hypothesis do
       @hypothesis.user.should == @user
     end
   end
+  
+  describe "validations" do
+    it "should require a user id" do
+      Hypothesis.new(@attr).should_not be_valid
+    end
+    
+    it "should require nonblank title" do
+      @user.hypotheses.build(:title => "  ").should_not be_valid
+    end
+    
+    it "should require nonblank content" do
+      @user.hypotheses.build(:content => "  ").should_not be_valid
+    end
+    
+    it "should require nonblank subject" do
+      @user.hypotheses.build(:subject => "  ").should_not be_valid
+    end
+  end
 end
