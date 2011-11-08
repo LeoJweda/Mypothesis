@@ -1,4 +1,4 @@
-%header.ui-widget-header.ui-corner-all.ui-helper-clearfix
+%header.ui-widget-header.ui-corner-all
   - logo = image_tag("logo.png", :alt => "Mypothesis")
   = link_to logo, root_path
   
@@ -7,7 +7,14 @@
       %li= link_to "Home", root_path, :class => "navButton"
       - if user_signed_in?
         %li
-          = link_to current_user.email, "#", :id => "profile"
-          = link_to "Select an action", destroy_user_session_path, :method => :delete, :id => "select"
+          %div
+            = link_to current_user.name, current_user, :id => "profile"
+            %button#select Select an action
+          %ul#dropDown
+            %li
+              = link_to "Edit profile", edit_user_registration_path
+            %li
+              = link_to "Log out", destroy_user_session_path, :method => :delete
+            
       - else
         %li= link_to "Sign in", new_user_session_url, :class => "navButton"

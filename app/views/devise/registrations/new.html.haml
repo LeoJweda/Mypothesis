@@ -1,0 +1,33 @@
+#panel-container
+  .panel.ui-dialog.ui-widget.ui-widget-content.ui-corner-all
+    .panel-header.ui-widget-header.ui-corner-all
+      %h2 Sign up
+      
+    .panel-content.ui-dialog-content.ui-widget-content
+      = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+        = devise_error_messages!
+        
+        %div
+          = f.label :name
+          %br/
+          = f.text_field :name, :class => "text ui-widget-content ui-corner-all"
+          
+        %div
+          = f.label :email
+          %br/
+          = f.email_field :email, :class => "text ui-widget-content ui-corner-all"
+          
+        %div
+          = f.label :password
+          %br/
+          = f.password_field :password, :class => "text ui-widget-content ui-corner-all"
+          
+        %div
+          = f.label :password_confirmation
+          %br/
+          = f.password_field :password_confirmation, :class => "text ui-widget-content ui-corner-all"
+          
+        %div= f.submit "Sign up"
+        
+    .panel-buttonpane.ui-dialog-buttonpane.ui-widget-content
+      = render :partial => "devise/shared/links"

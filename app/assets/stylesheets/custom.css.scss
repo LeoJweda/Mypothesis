@@ -3,6 +3,11 @@ body {
   font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
 }
 
+input.text {
+  margin-bottom: 12px;
+  padding: .4em;
+}
+
 .container {
   background-color: #fff;
   width: 960px;
@@ -12,6 +17,7 @@ body {
 
 header {
   padding: 1em;
+  overflow: none;
 }
 
 nav {
@@ -24,14 +30,20 @@ nav {
   }
 }
 
+#dropDown {
+  position: absolute;
+  z-index: 1000;
+}
+
 #radio {
   margin-bottom: 1em;
 }
 
-section {
+#content {
   margin-top: 1em;
   padding: 20px;
   width: 740px;
+  float: left;
 }
 
 .panel {
@@ -48,16 +60,31 @@ section {
   margin-left: 3em;
 }
 
+#sidebar {
+  margin-top: 1em;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  float: right;
+  width: 180px;
+}
+
 footer {
   padding: 1em;
   margin-bottom: 1em;
   text-align: center;
+  clear: both;
 }
 
-#mixpanel {
-  img {
-    display: block;
+#extras {
     margin-right: auto;
     margin-left: auto;
-  }
+    text-align: center;
+    
+    a {
+      text-decoration: none;
+      
+      img {
+        vertical-align: middle;
+      }
+    }
 }

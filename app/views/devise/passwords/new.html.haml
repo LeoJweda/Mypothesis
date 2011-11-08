@@ -1,0 +1,18 @@
+#panel-container
+  .panel.ui-dialog.ui-widget.ui-widget-content.ui-corner-all
+    .panel-header.ui-widget-header.ui-corner-all
+      %h2 Forgot your password?
+      
+    .panel-content.ui-dialog-content.ui-widget-content
+      = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
+        = devise_error_messages!
+        
+        %div
+          = f.label :email
+          %br/
+          = f.email_field :email, :class => "text ui-widget-content ui-corner-all"
+          
+        %div= f.submit "Send me reset password instructions"
+        
+    .panel-buttonpane.ui-dialog-buttonpane.ui-widget-content
+      = render :partial => "devise/shared/links"
