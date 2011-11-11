@@ -1,24 +1,16 @@
-#panel-container
-  .panel.ui-dialog.ui-widget.ui-widget-content.ui-corner-all
-    .panel-header.ui-widget-header.ui-corner-all
-      %h2 Change your password
+= render :layout => 'shared/panel', :locals => {:title => 'Change your password', :buttons => render(:partial => 'devise/shared/links')} do
+  = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f|
+    = devise_error_messages!
+    = f.hidden_field :reset_password_token
+    
+    %div
+      = f.label :password, "New password"
+      %br/
+      = f.password_field :password
       
-    .panel-content.ui-dialog-content.ui-widget-content
-      = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f|
-        = devise_error_messages!
-        = f.hidden_field :reset_password_token
-        
-        %div
-          = f.label :password, "New password"
-          %br/
-          = f.password_field :password
-          
-        %div
-          = f.label :password_confirmation, "Confirm new password"
-          %br/
-          = f.password_field :password_confirmation
-          
-        %div= f.submit "Change my password"
-        
-    .panel-buttonpane.ui-dialog-buttonpane.ui-widget-content
-      = render :partial => "devise/shared/links"
+    %div
+      = f.label :password_confirmation, "Confirm new password"
+      %br/
+      = f.password_field :password_confirmation
+      
+    %div= f.submit "Change my password"

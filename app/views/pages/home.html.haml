@@ -2,11 +2,6 @@
 %p Find me in app/views/pages/home.html.haml
 
 - content_for :sidebar do
-  #panel-container
-    .panel.ui-dialog.ui-widget.ui-widget-content.ui-corner-all
-      .panel-header.ui-widget-header.ui-corner-all
-        Users
-        
-      .panel-content.ui-dialog-content.ui-widget-content
-        - @users.each do |user|
-          %p User: #{link_to user.name, user}
+  = render :layout => 'shared/panel', :locals => {:title => 'Users', :buttons => ""} do
+    - @users.each do |user|
+      %p User: #{link_to user.name, user}

@@ -17,3 +17,5 @@ jQuery ->
   
   $("#radio").buttonset()
   $(".panel-buttonpane a").button()
+  
+  $('#switcher').themeswitcher()

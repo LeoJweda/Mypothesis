@@ -29,7 +29,11 @@ gem 'jquery-rails'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 
-gem 'rspec-rails', :group => [:test, :development]
+group :development do
+  gem 'rspec-rails'
+  gem 'faker'
+end
+
 group :test do
   gem 'factory_girl_rails'
   gem 'webrat'
@@ -41,6 +45,7 @@ group :test do
   gem 'ruby_gntp'
   gem 'haml-rails'
   gem 'guard-livereload'
+  gem 'rspec-rails'
 end
 
 gem 'thin'

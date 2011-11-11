@@ -1,7 +1,7 @@
 Mypothesis::Application.routes.draw do
   devise_for :users
   
-  resources :users
+  resources :users, :only => :show
   
   match "/about", :to => 'pages#about'
   
