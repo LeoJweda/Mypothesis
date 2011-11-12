@@ -29,8 +29,14 @@ gem 'jquery-rails'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 
-gem 'rspec-rails', :group => [:test, :development]
+group :development do
+  gem 'rspec-rails'
+  gem 'faker'
+  gem 'haml-rails'
+end
+
 group :test do
+  gem 'factory_girl_rails'
   gem 'webrat'
   gem 'capybara'
   gem 'guard-rspec'
@@ -38,11 +44,12 @@ group :test do
   gem 'guard-spork'
   gem 'rb-fsevent'
   gem 'ruby_gntp'
-  gem 'haml-rails'
   gem 'guard-livereload'
+  gem 'rspec-rails'
 end
 
 gem 'thin'
 gem 'haml'
 gem 'devise'
 gem 'omniauth'
+gem 'gravatar_image_tag'

@@ -22,8 +22,11 @@
               %span{:class => "ui-icon ui-icon-#{icon_for_key(key)}", :style => 'float: left; margin-right: .3em;'}
               = msg
               
-      %section
+      %section#content
         = yield
+        
+      %section#sidebar
+        = yield(:sidebar)
         
       = render 'layouts/footer'
       

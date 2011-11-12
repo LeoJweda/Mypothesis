@@ -1,2 +1,7 @@
-%h1 Pages#home
-%p Find me in app/views/pages/home.html.haml
+-unless Hypothesis.all.empty?
+  = render Hypothesis.all
+
+- content_for :sidebar do
+  = render :layout => 'shared/panel', :locals => {:title => 'Users', :buttons => ""} do
+    - @users.each do |user|
+      %p User: #{link_to user.name, user}

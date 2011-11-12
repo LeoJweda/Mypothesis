@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def home
+    @users = User.all
   end
 
   def about
@@ -10,5 +11,4 @@ class PagesController < ApplicationController
 
   def contact
   end
-
 end

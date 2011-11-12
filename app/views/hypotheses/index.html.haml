@@ -1,0 +1,27 @@
+%h1 Listing hypotheses
+
+%table
+  %tr
+    %th Title
+    %th Content
+    %th Null hypothesis
+    %th User
+    %th Subject
+    %th
+    %th
+    %th
+
+  - @hypotheses.each do |hypothesis|
+    %tr
+      %td= hypothesis.title
+      %td= hypothesis.content
+      %td= hypothesis.null_hypothesis
+      %td= hypothesis.user_id
+      %td= hypothesis.subject
+      %td= link_to 'Show', hypothesis
+      %td= link_to 'Edit', edit_hypothesis_path(hypothesis)
+      %td= link_to 'Destroy', hypothesis, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Hypothesis', new_hypothesis_path

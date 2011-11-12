@@ -1,0 +1,10 @@
+= render :layout => 'shared/panel', :locals => {:title => 'Resend unlock instructions', :buttons => render(:partial => 'devise/shared/links')} do
+  = form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }) do |f|
+    = devise_error_messages!
+    
+    %div
+      = f.label :email
+      %br/
+      = f.email_field :email
+      
+    %div= f.submit "Resend unlock instructions"

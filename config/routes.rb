@@ -1,10 +1,14 @@
 Mypothesis::Application.routes.draw do
+  resources :hypotheses
+
   devise_for :users
-
+  
+  resources :users, :only => :show
+  
   match "/about", :to => 'pages#about'
-
+  
   match "/faq", :to => 'pages#faq'
-
+  
   match "/contact", :to => 'pages#contact'
 
   # The priority is based upon order of creation:
