@@ -1,4 +1,6 @@
 Mypothesis::Application.routes.draw do
+  resources :hypotheses
+
   devise_for :users
   
   resources :users, :only => :show

@@ -32,6 +32,7 @@ gem 'jquery-rails'
 group :development do
   gem 'rspec-rails'
   gem 'faker'
+  gem 'haml-rails'
 end
 
 group :test do
@@ -43,7 +44,6 @@ group :test do
   gem 'guard-spork'
   gem 'rb-fsevent'
   gem 'ruby_gntp'
-  gem 'haml-rails'
   gem 'guard-livereload'
   gem 'rspec-rails'
 end

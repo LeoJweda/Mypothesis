@@ -9,6 +9,5 @@ class CreateHypotheses < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :hypotheses, [:user_id]
   end
 end

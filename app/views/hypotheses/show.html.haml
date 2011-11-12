@@ -1,0 +1,15 @@
+= render :layout => 'shared/panel', :locals => {:title => @hypothesis.title, :buttons => link_to('Edit', edit_hypothesis_path(@hypothesis))} do
+  %p#notice= notice
+  
+  %p
+    = @hypothesis.content
+  %p
+    %b Null hypothesis:
+    = @hypothesis.null_hypothesis
+  %p
+    %b Subject:
+    = @hypothesis.subject
+    
+- content_for :sidebar do
+  = render :layout => 'shared/panel', :locals => {:title => @hypothesis.user.name, :buttons => ""} do
+    = gravatar_for @hypothesis.user
