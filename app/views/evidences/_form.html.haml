@@ -1,0 +1,22 @@
+= form_for @hypothesis do |f|
+  -if @hypothesis.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@hypothesis.errors.count, "error")} prohibited this evidence from being saved:"
+      %ul
+        - @hypothesis.errors.full_messages.each do |msg|
+          %li= msg
+  - f.fields_for :evidence do |evidence_fields|
+    .field
+      = evidence_fields.label :title
+      = evidence_fields.text_field :title, :class => 'text ui-widget-content ui-corner-all'
+    .field
+      = evidence_fields.label :content
+      = evidence_fields.text_area :content, :class => 'text ui-widget-content ui-corner-all'
+    .field
+      = evidence_fields.label :supporting
+      = evidence_fields.check_box :supporting, :class => 'text ui-widget-content ui-corner-all'
+    .field
+      = evidence_fields.label :user_id
+      = evidence_fields.number_field :user_id, :class => 'text ui-widget-content ui-corner-all'
+    .actions
+      = evidence_fields.submit 'Save'

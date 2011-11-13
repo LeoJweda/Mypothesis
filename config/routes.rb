@@ -1,4 +1,6 @@
 Mypothesis::Application.routes.draw do
+  resources :evidences
+
   resources :hypotheses
 
   devise_for :users

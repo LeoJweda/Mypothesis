@@ -1,4 +1,4 @@
-= render :layout => 'shared/panel', :locals => {:title => @hypothesis.title, :buttons => link_to('Edit', edit_hypothesis_path(@hypothesis))} do
+= render :layout => 'shared/panel', :locals => {:title => @hypothesis.title, :buttons => render(:partial => 'hypotheses/shared/buttons', :locals => {:hypothesis => @hypothesis}), :outside => render(@hypothesis.evidences) + render(:partial => 'evidences/new', :locals => {:hypothesis => @hypothesis})} do
   %p#notice= notice
   
   %p

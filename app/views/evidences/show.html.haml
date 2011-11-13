@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @evidence.title
+%p
+  %b Content:
+  = @evidence.content
+%p
+  %b Supporting:
+  = @evidence.supporting
+%p
+  %b User:
+  = @evidence.user_id
+
+= link_to 'Edit', edit_evidence_path(@evidence)
+\|
+= link_to 'Back', evidences_path

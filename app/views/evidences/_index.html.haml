@@ -1,0 +1,25 @@
+%h1 Listing evidences
+
+%table
+  %tr
+    %th Title
+    %th Content
+    %th Supporting
+    %th User
+    %th
+    %th
+    %th
+
+  - @evidences.each do |evidence|
+    %tr
+      %td= evidence.title
+      %td= evidence.content
+      %td= evidence.supporting
+      %td= evidence.user_id
+      %td= link_to 'Show', evidence
+      %td= link_to 'Edit', edit_evidence_path(evidence)
+      %td= link_to 'Destroy', evidence, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Evidence', new_evidence_path

@@ -1,0 +1,2 @@
+= render :layout => 'shared/panel', :locals => {:indented => true, :title => link_to(evidence.title, evidence), :buttons => link_to('Edit', edit_evidence_path(evidence)) + link_to('Destroy', evidence, :confirm => 'Are you sure?', :method => :delete)} do
+  = evidence.content
