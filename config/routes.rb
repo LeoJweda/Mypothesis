@@ -1,4 +1,11 @@
 Mypothesis::Application.routes.draw do
+  resources :evidences do
+    member do
+      put 'up_vote'
+      put 'down_vote'
+    end
+  end
+
   resources :hypotheses
 
   devise_for :users

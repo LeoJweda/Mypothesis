@@ -11,7 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111112071818) do
+ActiveRecord::Schema.define(:version => 20111113165027) do
+
+  create_table "evidences", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.boolean  "supporting"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "hypothesis_id"
+    t.integer  "cached_votes_total", :default => 0
+    t.integer  "cached_votes_up",    :default => 0
+    t.integer  "cached_votes_down",  :default => 0
+    t.text     "references"
+  end
+
+  add_index "evidences", ["cached_votes_down"], :name => "index_evidences_on_cached_votes_down"
+  add_index "evidences", ["cached_votes_total"], :name => "index_evidences_on_cached_votes_total"
+  add_index "evidences", ["cached_votes_up"], :name => "index_evidences_on_cached_votes_up"
 
   create_table "hypotheses", :force => true do |t|
     t.string   "title"
@@ -21,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20111112071818) do
     t.string   "subject"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "references"
   end
 
   create_table "users", :force => true do |t|
@@ -41,5 +60,18 @@ ActiveRecord::Schema.define(:version => 20111112071818) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "votes", :force => true do |t|
+    t.integer  "votable_id"
+    t.string   "votable_type"
+    t.integer  "voter_id"
+    t.string   "voter_type"
+    t.boolean  "vote_flag"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "votes", ["votable_id", "votable_type"], :name => "index_votes_on_votable_id_and_votable_type"
+  add_index "votes", ["voter_id", "voter_type"], :name => "index_votes_on_voter_id_and_voter_type"
 
 end

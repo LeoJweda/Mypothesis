@@ -2,5 +2,5 @@
   = render @user.hypotheses
   
 - content_for :sidebar do
-  = render :layout => 'shared/panel', :locals => {:title => @user.name, :buttons => ""} do
+  = render :layout => 'shared/panel', :locals => {:title => @user.name} do
     = gravatar_for @user
