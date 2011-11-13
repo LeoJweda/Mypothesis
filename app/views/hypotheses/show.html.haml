@@ -1,4 +1,6 @@
-= render :layout => 'shared/panel', :locals => {:title => @hypothesis.title, :buttons => render(:partial => 'hypotheses/shared/buttons', :locals => {:hypothesis => @hypothesis}), :outside => render(@hypothesis.evidences) + render(:partial => 'evidences/new', :locals => {:hypothesis => @hypothesis})} do
+= render :layout => 'shared/panel', :locals => {:title => @hypothesis.title,
+  :buttons => render(:partial => 'hypotheses/shared/buttons', :locals => {:hypothesis => @hypothesis}),
+  :outside => @hypothesis.evidences.empty? ? render(:partial => 'evidences/new', :locals => {:hypothesis => @hypothesis}) : render(@hypothesis.evidences) + render(:partial => 'evidences/new', :locals => {:hypothesis => @hypothesis})} do
   %p#notice= notice
   
   %p
@@ -9,7 +11,12 @@
   %p
     %b Subject:
     = @hypothesis.subject
+  %p
+    %b References:
+    = @hypothesis.references
     
+  = score(@hypothesis)
+        
 - content_for :sidebar do
   = render :layout => 'shared/panel', :locals => {:title => @hypothesis.user.name, :buttons => ""} do
     = gravatar_for @hypothesis.user

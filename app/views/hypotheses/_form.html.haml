@@ -16,10 +16,13 @@
     = f.label :null_hypothesis
     = f.text_area :null_hypothesis, :class => 'text ui-widget-content ui-corner-all'
   .field
-    = f.label :user_id
-    = f.number_field :user_id, :class => 'text ui-widget-content ui-corner-all'
-  .field
     = f.label :subject
     = f.text_field :subject, :class => 'text ui-widget-content ui-corner-all'
+  .field
+    = f.label :references
+    = f.text_area :references, :class => 'text ui-widget-content ui-corner-all'
+  .field
+    = f.label :user_id
+    = f.number_field :user_id, :class => 'text ui-widget-content ui-corner-all'
   .actions
     = f.submit 'Save'

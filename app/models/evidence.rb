@@ -1,5 +1,5 @@
 class Evidence < ActiveRecord::Base
-  attr_accessible :title, :content, :supporting, :hypothesis
+  attr_accessible :title, :content, :supporting, :references, :hypothesis
   
   belongs_to :hypothesis
   belongs_to :user
@@ -8,4 +8,6 @@ class Evidence < ActiveRecord::Base
   validates :content, :presence => true
   validates :hypothesis_id, :presence => true
   validates :user_id, :presence => true
+  
+  acts_as_votable
 end

@@ -5,8 +5,9 @@
     %th Title
     %th Content
     %th Null hypothesis
-    %th User
     %th Subject
+    %th References
+    %th User
     %th
     %th
     %th
@@ -16,8 +17,9 @@
       %td= hypothesis.title
       %td= hypothesis.content
       %td= hypothesis.null_hypothesis
-      %td= hypothesis.user_id
       %td= hypothesis.subject
+      %td= hypothesis.references
+      %td= hypothesis.user_id
       %td= link_to 'Show', hypothesis
       %td= link_to 'Edit', edit_hypothesis_path(hypothesis)
       %td= link_to 'Destroy', hypothesis, :confirm => 'Are you sure?', :method => :delete

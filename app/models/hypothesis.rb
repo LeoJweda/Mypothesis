@@ -1,5 +1,5 @@
 class Hypothesis < ActiveRecord::Base
-  attr_accessible :title, :content, :null_hypothesis, :subject
+  attr_accessible :title, :content, :null_hypothesis, :subject, :references
   
   belongs_to :user
   has_many :evidences

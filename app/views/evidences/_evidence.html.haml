@@ -1,2 +1,7 @@
-= render :layout => 'shared/panel', :locals => {:indented => true, :title => link_to(evidence.title, evidence), :buttons => link_to('Edit', edit_evidence_path(evidence)) + link_to('Destroy', evidence, :confirm => 'Are you sure?', :method => :delete)} do
+= render :layout => 'shared/panel', :locals => {:indented => true, :title => evidence.title, :buttons => link_to('Edit', edit_evidence_path(evidence)) + link_to('Destroy', evidence, :confirm => 'Are you sure?', :method => :delete)} do
   = evidence.content
+  = evidence.supporting
+  = evidence.references
+  = link_to 'Up Vote', up_vote_evidence_path(evidence), :method => :put, :remote=>true
+  = link_to 'Down Vote', down_vote_evidence_path(evidence), :method => :put, :remote=>true
+  = evidence.upvotes.size - evidence.downvotes.size

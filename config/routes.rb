@@ -1,5 +1,10 @@
 Mypothesis::Application.routes.draw do
-  resources :evidences
+  resources :evidences do
+    member do
+      put 'up_vote'
+      put 'down_vote'
+    end
+  end
 
   resources :hypotheses
 

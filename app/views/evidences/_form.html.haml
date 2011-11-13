@@ -16,6 +16,9 @@
       = evidence_fields.label :supporting
       = evidence_fields.check_box :supporting, :class => 'text ui-widget-content ui-corner-all'
     .field
+      = evidence_fields.label :references
+      = evidence_fields.text_area :references, :class => 'text ui-widget-content ui-corner-all'
+    .field
       = evidence_fields.label :user_id
       = evidence_fields.number_field :user_id, :class => 'text ui-widget-content ui-corner-all'
     .actions

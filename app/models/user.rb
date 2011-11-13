@@ -9,4 +9,6 @@ class User < ActiveRecord::Base
   
   has_many :hypotheses
   has_many :evidences
+  
+  acts_as_voter
 end

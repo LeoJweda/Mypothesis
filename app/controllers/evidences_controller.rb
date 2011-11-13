@@ -80,4 +80,12 @@ class EvidencesController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  def up_vote
+    Evidence.find(params[:id]).vote_up current_user
+  end
+  
+  def down_vote
+    Evidence.find(params[:id]).vote_down current_user
+  end
 end
