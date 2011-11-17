@@ -1,7 +1,17 @@
 -unless Hypothesis.all.empty?
-  = render Hypothesis.all
+  = render @hypotheses
 
 - content_for :sidebar do
-  = render :layout => 'shared/panel', :locals => {:title => 'Users', :buttons => ""} do
-    - @users.each do |user|
-      %p User: #{link_to user.name, user}
+  = button_to 'New Hypothesis', new_hypothesis_path
+  = render :layout => 'shared/panel', :locals => {:title => 'Search Hypotheses'} do
+    = form_tag(root_path, :method => 'get') do
+      #order
+        = radio_button_tag 'order', 'new', true
+        = label_tag(:order_new, 'New')
+        = radio_button_tag 'order', 'best', false
+        = label_tag(:order_best, 'Best')
+        
+      = label_tag(:search_subject, "Subject:")
+      = render :partial => 'shared/subject', :locals => {:object => 'search'}
+      
+      = submit_tag("Filter")

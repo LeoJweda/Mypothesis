@@ -15,7 +15,7 @@ jQuery ->
   
   $("#dropDown").menu().hide()
   
-  $("#radio").buttonset()
+  $("#order").buttonset()
   $(".panel-buttonpane a").button()
   
   $('#switcher').themeswitcher()
