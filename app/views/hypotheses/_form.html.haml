@@ -17,7 +17,7 @@
     = f.text_area :null_hypothesis, :class => 'text ui-widget-content ui-corner-all'
   .field
     = f.label :subject
-    = f.text_field :subject, :class => 'text ui-widget-content ui-corner-all'
+    = render :partial => 'shared/subject', :locals => {:object => 'hypothesis'}
   .field
     = f.label :references
     = f.text_area :references, :class => 'text ui-widget-content ui-corner-all'
