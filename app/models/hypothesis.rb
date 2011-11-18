@@ -8,4 +8,18 @@ class Hypothesis < ActiveRecord::Base
   validates :content, :presence => true
   validates :subject, :presence => true
   validates :user_id, :presence => true
+  
+  def score
+    votes = 0
+    evidences.each do |evidence|
+      if (evidence.upvotes.size - evidence.downvotes.size) > 0
+        if evidence.supporting
+          votes += (evidence.upvotes.size - evidence.downvotes.size)
+        else
+          votes -= (evidence.upvotes.size - evidence.downvotes.size)
+        end
+      end
+    end
+    votes
+  end
 end

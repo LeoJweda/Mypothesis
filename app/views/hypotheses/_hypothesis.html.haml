@@ -1,4 +1,4 @@
 = render :layout => 'shared/panel', :locals => {:title => link_to(hypothesis.title, hypothesis), :buttons => render(:partial => 'hypotheses/shared/buttons', :locals => {:hypothesis => hypothesis})} do
   = hypothesis.content
-  = score(hypothesis)
+  = hypothesis.score
   = hypothesis.references

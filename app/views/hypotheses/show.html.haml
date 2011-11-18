@@ -15,8 +15,8 @@
     %b References:
     = @hypothesis.references
     
-  = score(@hypothesis)
+  = @hypothesis.score
         
 - content_for :sidebar do
-  = render :layout => 'shared/panel', :locals => {:title => @hypothesis.user.name, :buttons => ""} do
+  = render :layout => 'shared/panel', :locals => {:title => @hypothesis.user.name} do
     = gravatar_for @hypothesis.user

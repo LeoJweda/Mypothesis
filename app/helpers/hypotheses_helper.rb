@@ -1,15 +1,15 @@
 module HypothesesHelper
-  def score(hypothesis)
-    votes = 0
-    hypothesis.evidences.each do |evidence|
-      if (evidence.upvotes.size - evidence.downvotes.size) > 0
-        if evidence.supporting
-          votes += (evidence.upvotes.size - evidence.downvotes.size)
-        else
-          votes -= (evidence.upvotes.size - evidence.downvotes.size)
-        end
-      end
+  def filter_hypotheses(subject, order)
+    @hypotheses = []
+    if !subject || subject == 'All'
+      @hypotheses = Hypothesis.all
+    else
+      @hypotheses = Hypothesis.find(:all, :conditions => ["subject = ?", subject])
     end
-    votes
+    
+    if order == 'best'
+      @hypotheses.sort!{|a, b| b.score <=> a.score}
+    end
+    @hypotheses
   end
 end

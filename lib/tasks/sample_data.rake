@@ -4,7 +4,7 @@ namespace :db do
     50.times do
       User.all(:limit => 6).each do |user|
         user.hypotheses.create!(:title => Faker::Lorem.sentence(5), :content => Faker::Lorem.sentence(5),
-          :null_hypothesis => Faker::Lorem.sentence(5), :subject => "Psychology", :references => Faker::Lorem.sentence(5))
+          :null_hypothesis => Faker::Lorem.sentence(5), :subject => %w[Anthropology Archaeology Astronomy Biochemistry Biology Business Chemistry Economics Forensics Geography Mathematics Philosophy Physics Psychology Sociology Other].shuffle.shift, :references => Faker::Lorem.sentence(5))
       end
     end
     
