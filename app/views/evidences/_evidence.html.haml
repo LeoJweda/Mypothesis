@@ -1,7 +1,20 @@
-= render :layout => 'shared/panel', :locals => {:indented => true, :title => evidence.title, :buttons => link_to('Edit', edit_evidence_path(evidence)) + link_to('Destroy', evidence, :confirm => 'Are you sure?', :method => :delete)} do
-  = evidence.content
-  = evidence.supporting
-  = evidence.references
-  = link_to 'Up Vote', up_vote_evidence_path(evidence), :method => :put, :remote=>true
-  = link_to 'Down Vote', down_vote_evidence_path(evidence), :method => :put, :remote=>true
-  = evidence.upvotes.size - evidence.downvotes.size
+= render :layout => 'shared/panel', :locals => {:indented => true, :title => evidence.title, :buttons => render(:partial => 'evidences/shared/buttons', :locals => {:evidence => evidence})} do
+  %table
+    %tr
+      %td.panel-sidebar
+        %b= evidence.score
+        %br/
+        = link_to 'Up Vote', up_vote_evidence_path(evidence), :method => :put, :remote=>true, :class => 'upvote'
+        %br/
+        = link_to 'Down Vote', down_vote_evidence_path(evidence), :method => :put, :remote=>true, :class => 'downvote'
+        %br/
+        - if evidence.supporting
+          .positive Positive
+        - else
+          .negative Negative
+      %td
+        = evidence.content
+        %br/
+        %b References:
+        %br/
+        = evidence.references

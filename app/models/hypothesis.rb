@@ -12,11 +12,11 @@ class Hypothesis < ActiveRecord::Base
   def score
     votes = 0
     evidences.each do |evidence|
-      if (evidence.upvotes.size - evidence.downvotes.size) > 0
+      if evidence.score > 0
         if evidence.supporting
-          votes += (evidence.upvotes.size - evidence.downvotes.size)
+          votes += evidence.score
         else
-          votes -= (evidence.upvotes.size - evidence.downvotes.size)
+          votes -= evidence.score
         end
       end
     end
