@@ -191,6 +191,7 @@ GEM
     rb-fsevent (0.4.3.1)
     rdoc (3.10)
       json (~> 1.4)
+    recaptcha (0.3.4)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rspec (2.6.0)
@@ -276,6 +277,7 @@ DEPENDENCIES
   pg
   rails (= 3.1.0)
   rb-fsevent
+  recaptcha
   rspec-rails
   ruby_gntp
   sass-rails (~> 3.1.0)

@@ -22,4 +22,7 @@
       %br/
       = f.password_field :password_confirmation, :class => 'text ui-widget-content ui-corner-all'
       
+    %div
+      = recaptcha_tags
+      
     %div= f.submit 'Sign up'

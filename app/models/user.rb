@@ -11,4 +11,6 @@ class User < ActiveRecord::Base
   has_many :evidences
   
   acts_as_voter
+  
+  ROLES = %w[admin moderator basic banned]
 end

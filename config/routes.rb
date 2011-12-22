@@ -8,9 +8,9 @@ Mypothesis::Application.routes.draw do
 
   resources :hypotheses
 
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "users/registrations"}
   
-  resources :users, :only => :show
+  resources :users
   
   match "/about", :to => 'pages#about'
   
