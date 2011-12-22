@@ -1,2 +1,18 @@
-%h1 Pages#home
-%p Find me in app/views/pages/home.html.haml
+-unless Hypothesis.all.empty?
+  = render :partial => 'hypotheses/index', :locals => {:subject => params[:subject], :order => params[:order]}
+
+- content_for :sidebar do
+  - if can? :create, Hypothesis
+    = button_to 'New Hypothesis', new_hypothesis_path, :method => 'get'
+  = render :layout => 'shared/panel', :locals => {:title => 'Search Hypotheses'} do
+    = form_tag(root_path, :method => 'get') do
+      #order
+        = radio_button_tag 'order', 'new', true
+        = label_tag(:order_new, 'New')
+        = radio_button_tag 'order', 'best', false
+        = label_tag(:order_best, 'Best')
+        
+      = label_tag(:subject, "Subject:")
+      = render :partial => 'shared/subject'
+      
+      = submit_tag("Filter")

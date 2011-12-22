@@ -1,10 +1,21 @@
 Mypothesis::Application.routes.draw do
-  devise_for :users
+  resources :evidences do
+    member do
+      put 'up_vote'
+      put 'down_vote'
+    end
+  end
 
+  resources :hypotheses
+
+  devise_for :users, :controllers => {:registrations => "users/registrations"}
+  
+  resources :users
+  
   match "/about", :to => 'pages#about'
-
+  
   match "/faq", :to => 'pages#faq'
-
+  
   match "/contact", :to => 'pages#contact'
 
   # The priority is based upon order of creation:

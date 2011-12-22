@@ -1,0 +1,12 @@
+-unless @user.hypotheses.empty?
+  = render @user.hypotheses
+  
+- content_for :sidebar do
+  = render :layout => 'shared/panel', :locals => {:title => @user.name} do
+    %div
+      %b #{@user.full_name}
+      %br/
+      %i #{@user.title}
+      at
+      %i #{@user.organization} 
+    = gravatar_for @user

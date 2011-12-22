@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  skip_authorization_check
   def home
   end
 
@@ -10,5 +11,4 @@ class PagesController < ApplicationController
 
   def contact
   end
-
 end

@@ -1,0 +1,12 @@
+= render :layout => 'shared/panel', :locals => {:title => link_to(hypothesis.title, hypothesis),
+  :buttons => render(:partial => 'hypotheses/shared/buttons', :locals => {:hypothesis => hypothesis})} do
+  %table
+    %tr
+      %td.panel-sidebar
+        %b= hypothesis.score
+      %td
+        %p
+          = hypothesis.content
+        %p
+          %b Subject:
+          = hypothesis.subject
