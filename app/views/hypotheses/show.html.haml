@@ -1,6 +1,6 @@
 = render :layout => 'shared/panel', :locals => {:title => @hypothesis.title,
   :buttons => render(:partial => 'hypotheses/shared/buttons', :locals => {:hypothesis => @hypothesis}),
-  :outside => @hypothesis.evidences.empty? ? render(:partial => 'evidences/new', :locals => {:hypothesis => @hypothesis}) : render(@hypothesis.evidences) + render(:partial => 'evidences/new', :locals => {:hypothesis => @hypothesis})} do
+  :outside => @hypothesis.evidences.empty? ? (render(:partial => 'evidences/new', :locals => {:hypothesis => @hypothesis}) if(can? :create, Evidence)) : render(@hypothesis.evidences) + (render(:partial => 'evidences/new', :locals => {:hypothesis => @hypothesis}) if(can? :create, Evidence))} do
   %p#notice= notice
   %table
     %tr

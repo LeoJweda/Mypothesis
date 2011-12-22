@@ -1,12 +1,15 @@
-= render :layout => 'shared/panel', :locals => {:indented => true, :title => evidence.title, :buttons => render(:partial => 'evidences/shared/buttons', :locals => {:evidence => evidence})} do
+= render :layout => 'shared/panel', :locals => {:indented => true, :title => evidence.title,
+:buttons => render(:partial => 'evidences/shared/buttons', :locals => {:evidence => evidence})} do
   %table
     %tr
       %td.panel-sidebar
-        = link_to 'Up Vote', up_vote_evidence_path(evidence), :method => :put, :remote=>true, :class => 'upvote'
+        - if current_user != nil
+          = link_to 'Up Vote', up_vote_evidence_path(evidence), :method => :put, :remote=>true, :class => 'upvote'
         %br/
         %b= evidence.score
         %br/
-        = link_to 'Down Vote', down_vote_evidence_path(evidence), :method => :put, :remote=>true, :class => 'downvote'
+        - if current_user != nil
+          = link_to 'Down Vote', down_vote_evidence_path(evidence), :method => :put, :remote=>true, :class => 'downvote'
         %br/
         - if evidence.supporting
           .positive Positive

@@ -2,7 +2,8 @@
   = render :partial => 'hypotheses/index', :locals => {:subject => params[:subject], :order => params[:order]}
 
 - content_for :sidebar do
-  = button_to 'New Hypothesis', new_hypothesis_path, :method => 'get'
+  - if can? :create, Hypothesis
+    = button_to 'New Hypothesis', new_hypothesis_path, :method => 'get'
   = render :layout => 'shared/panel', :locals => {:title => 'Search Hypotheses'} do
     = form_tag(root_path, :method => 'get') do
       #order

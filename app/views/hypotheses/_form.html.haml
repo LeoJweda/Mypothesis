@@ -5,7 +5,7 @@
       %ul
         - @hypothesis.errors.full_messages.each do |msg|
           %li= msg
-
+          
   .field
     = f.label :title
     = f.text_field :title, :class => 'text ui-widget-content ui-corner-all'
@@ -21,8 +21,5 @@
   .field
     = f.label :references
     = f.text_area :references, :class => 'text ui-widget-content ui-corner-all'
-  .field
-    = f.label :user_id
-    = f.number_field :user_id, :class => 'text ui-widget-content ui-corner-all'
   .actions
     = f.submit 'Save'

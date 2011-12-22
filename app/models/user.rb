@@ -14,9 +14,13 @@ class User < ActiveRecord::Base
   
   acts_as_voter
   
-  ROLES = %w[admin moderator basic banned]
+  ROLES = %w[banned basic moderator admin]
   
   def full_name
     "#{first_name} #{last_name}"
+  end
+  
+  def role?(base_role)
+    ROLES.index(base_role.to_s) <= ROLES.index(role)
   end
 end
