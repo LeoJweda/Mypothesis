@@ -1,4 +1,5 @@
 class EvidencesController < ApplicationController
+  authorize_resource
   # GET /evidences
   # GET /evidences.json
   def index
@@ -40,7 +41,7 @@ class EvidencesController < ApplicationController
   # POST /evidences
   # POST /evidences.json
   def create
-    @evidence = Evidence.new(params[:evidence])
+    @evidence = current_user.evidences.build(params[:evidence])
 
     respond_to do |format|
       if @evidence.save

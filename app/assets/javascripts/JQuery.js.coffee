@@ -18,4 +18,22 @@ jQuery ->
   $("#order").buttonset()
   $(".panel-buttonpane a").button()
   
-  $('#switcher').themeswitcher()
+  $(".edit").button
+    text: false,
+    icons:
+      primary: "ui-icon-pencil"
+      
+  $(".delete").button
+    text: false,
+    icons:
+      primary: "ui-icon-close"
+      
+  $(".upvote").button
+    text: false,
+    icons:
+      primary: "ui-icon-plus"
+      
+  $(".downvote").button
+    text: false,
+    icons:
+      primary: "ui-icon-minus"

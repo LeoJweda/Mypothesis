@@ -1,0 +1,4 @@
+- if can? :update, evidence
+  = link_to 'Edit', edit_evidence_path(evidence), :class => 'edit'
+- if can? :destroy, evidence 
+  = link_to 'Destroy', evidence, :confirm => 'Are you sure?', :method => :delete, :class => 'delete'

@@ -1,6 +1,7 @@
 %header.ui-widget-header.ui-corner-all
   - logo = image_tag("logo.png", :alt => "Mypothesis")
   = link_to logo, root_path
+  BETA
   
   %nav
     %ul
@@ -8,7 +9,7 @@
       %li
         - if user_signed_in?
           %div
-            = link_to current_user.name, current_user, :id => "profile"
+            = link_to current_user.full_name, current_user, :id => "profile"
             %button#select Select an action
           %ul#dropDown
             %li

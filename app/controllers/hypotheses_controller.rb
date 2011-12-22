@@ -1,4 +1,5 @@
 class HypothesesController < ApplicationController
+  authorize_resource
   # GET /hypotheses
   # GET /hypotheses.json
   def index
@@ -40,7 +41,7 @@ class HypothesesController < ApplicationController
   # POST /hypotheses
   # POST /hypotheses.json
   def create
-    @hypothesis = Hypothesis.new(params[:hypothesis])
+    @hypothesis = current_user.hypotheses.build(params[:hypothesis])
 
     respond_to do |format|
       if @hypothesis.save

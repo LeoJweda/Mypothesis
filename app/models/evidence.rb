@@ -10,4 +10,8 @@ class Evidence < ActiveRecord::Base
   validates :user_id, :presence => true
   
   acts_as_votable
+  
+  def score
+    upvotes.size - downvotes.size
+  end
 end
