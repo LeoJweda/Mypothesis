@@ -3,9 +3,24 @@
     = devise_error_messages!
     
     %div
-      = f.label :name
+      = f.label :first_name
       %br/
-      = f.text_field :name, :class => 'text ui-widget-content ui-corner-all'
+      = f.text_field :first_name, :class => 'text ui-widget-content ui-corner-all'
+      
+    %div
+      = f.label :last_name
+      %br/
+      = f.text_field :last_name, :class => 'text ui-widget-content ui-corner-all'
+      
+    %div
+      = f.label :organization
+      %br/
+      = f.text_field :organization, :class => 'text ui-widget-content ui-corner-all'
+      
+    %div
+      = f.label :title
+      %br/
+      = f.text_field :title, :class => 'text ui-widget-content ui-corner-all'
       
     %div
       = f.label :email

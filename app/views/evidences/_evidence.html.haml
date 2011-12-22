@@ -2,9 +2,9 @@
   %table
     %tr
       %td.panel-sidebar
-        %b= evidence.score
-        %br/
         = link_to 'Up Vote', up_vote_evidence_path(evidence), :method => :put, :remote=>true, :class => 'upvote'
+        %br/
+        %b= evidence.score
         %br/
         = link_to 'Down Vote', down_vote_evidence_path(evidence), :method => :put, :remote=>true, :class => 'downvote'
         %br/
