@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :first_name, :last_name, :organization, :title, :email, :password, :password_confirmation, :remember_me
   
+  before_save :default_values
+  
   has_many :hypotheses
   has_many :evidences
   
@@ -22,5 +24,9 @@ class User < ActiveRecord::Base
   
   def role?(base_role)
     ROLES.index(base_role.to_s) <= ROLES.index(role)
+  end
+  
+  def default_values
+    self.role = 'basic' unless self.role
   end
 end
