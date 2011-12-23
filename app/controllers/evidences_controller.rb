@@ -25,6 +25,7 @@ class EvidencesController < ApplicationController
   # GET /evidences/new
   # GET /evidences/new.json
   def new
+    @hypothesis = Hypothesis.find(params[:hypothesis_id])
     @evidence = Evidence.new
 
     respond_to do |format|
@@ -35,17 +36,20 @@ class EvidencesController < ApplicationController
 
   # GET /evidences/1/edit
   def edit
+    @hypothesis = Hypothesis.find(params[:hypothesis_id])
     @evidence = Evidence.find(params[:id])
   end
 
   # POST /evidences
   # POST /evidences.json
   def create
+    @hypothesis = Hypothesis.find(params[:hypothesis_id])
+    params[:evidence][:hypothesis] = @hypothesis
     @evidence = current_user.evidences.build(params[:evidence])
 
     respond_to do |format|
       if @evidence.save
-        format.html { redirect_to @evidence, notice: 'Evidence was successfully created.' }
+        format.html { redirect_to @evidence.hypothesis, notice: 'Evidence was successfully created.' }
         format.json { render json: @evidence, status: :created, location: @evidence }
       else
         format.html { render action: "new" }
@@ -61,7 +65,7 @@ class EvidencesController < ApplicationController
 
     respond_to do |format|
       if @evidence.update_attributes(params[:evidence])
-        format.html { redirect_to @evidence, notice: 'Evidence was successfully updated.' }
+        format.html { redirect_to @evidence.hypothesis, notice: 'Evidence was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
@@ -77,7 +81,7 @@ class EvidencesController < ApplicationController
     @evidence.destroy
 
     respond_to do |format|
-      format.html { redirect_to evidences_url }
+      format.html { redirect_to @evidence.hypothesis }
       format.json { head :ok }
     end
   end

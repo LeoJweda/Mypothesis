@@ -1,0 +1,7 @@
+.user-info
+  = gravatar_for user, :size => 40
+  %b #{user.full_name}
+  %br/
+  %i #{user.title}
+  at
+  %i #{user.organization}

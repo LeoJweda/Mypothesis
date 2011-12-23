@@ -77,7 +77,7 @@ class HypothesesController < ApplicationController
     @hypothesis.destroy
 
     respond_to do |format|
-      format.html { redirect_to hypotheses_url }
+      format.html { redirect_to root_path }
       format.json { head :ok }
     end
   end
