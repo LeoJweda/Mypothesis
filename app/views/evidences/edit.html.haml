@@ -1,7 +1,2 @@
-%h1 Editing evidence
-
-= render 'form'
-
-= link_to 'Show', @evidence
-\|
-= link_to 'Back', evidences_path
+= render :layout => 'shared/panel', :locals => {:indented => true, :title => 'New evidence'} do
+  = render 'evidences/form'
