@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   APP_DOMAIN = 'www.mypothesis.com'
 
   def ensure_domain
-    if request.env['HTTP_HOST'] != APP_DOMAIN
+    if Rails.env.production? && request.env['HTTP_HOST'] != APP_DOMAIN
       # HTTP 301 is a "permanent" redirect
       redirect_to "http://#{APP_DOMAIN}", :status => 301
     end
