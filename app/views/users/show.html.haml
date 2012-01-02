@@ -2,7 +2,7 @@
   = render @user.hypotheses
   
 - content_for :sidebar do
-  = render :layout => 'shared/panel', :locals => {:title => @user.full_name} do
+  = render :layout => 'shared/panel', :locals => {:title => 'User Info'} do
     %div
       %b #{@user.full_name}
       %br/
