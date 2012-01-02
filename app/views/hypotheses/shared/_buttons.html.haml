@@ -1,6 +1,7 @@
-- if can? :update, hypothesis
-  = link_to 'Edit', edit_hypothesis_path(hypothesis), :class => 'edit'
-- if can? :destroy, hypothesis 
-  = link_to 'Destroy', hypothesis, :confirm => 'Are you sure?', :method => :delete, :class => 'delete'
+%span#panel-buttons
+  - if can? :update, hypothesis
+    = link_to 'Edit', edit_hypothesis_path(hypothesis), :class => 'edit'
+  - if can? :destroy, hypothesis 
+    = link_to 'Destroy', hypothesis, :confirm => 'Are you sure?', :method => :delete, :class => 'delete'
   
 = render :partial => 'shared/user_info', :locals => {:user => hypothesis.user}
