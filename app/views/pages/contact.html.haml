@@ -1,7 +1,7 @@
 - title 'Contact'
 
-%h1 Contact Us
-%p
-  For now you can contact Leo Jweda directly at Leo
-  %a{:href => "http://www.google.com/recaptcha/mailhide/d?k=019nKNqs0CeF0RofAHpxJ5YQ==&amp;c=EzCfbrqFShn2-BJoJ6cK_F4oyJilX_ei3QCwArd6seI=", :onclick => "window.open('http://www.google.com/recaptcha/mailhide/d?k\075019nKNqs0CeF0RofAHpxJ5YQ\75\75\46c\75EzCfbrqFShn2-BJoJ6cK_F4oyJilX_ei3QCwArd6seI\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;", :title => "Reveal this e-mail address"}...
-  @gmail.com
+= render :layout => 'shared/panel', :locals => {:title => 'Contact Us'} do
+  %p
+    For now you can contact Leo Jweda directly at Leo
+    %a{:href => "http://www.google.com/recaptcha/mailhide/d?k=019nKNqs0CeF0RofAHpxJ5YQ==&amp;c=EzCfbrqFShn2-BJoJ6cK_F4oyJilX_ei3QCwArd6seI=", :onclick => "window.open('http://www.google.com/recaptcha/mailhide/d?k\075019nKNqs0CeF0RofAHpxJ5YQ\75\75\46c\75EzCfbrqFShn2-BJoJ6cK_F4oyJilX_ei3QCwArd6seI\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;", :title => "Reveal this e-mail address"}...
+    @gmail.com
