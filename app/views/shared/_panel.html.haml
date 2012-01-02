@@ -7,7 +7,7 @@
     .panel-content.ui-dialog-content.ui-widget-content
       = yield
     - if local_assigns[:buttons] && local_assigns[:buttons] != ''
-      .panel-buttonpane.ui-dialog-buttonpane.ui-widget-content
+      .panel-buttonpane.ui-dialog-buttonpane.ui-widget-content.ui-helper-clearfix
         = buttons
   - if local_assigns[:outside]
     = outside

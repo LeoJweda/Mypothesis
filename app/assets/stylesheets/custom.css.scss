@@ -17,7 +17,6 @@ input.text {
 
 header {
   padding: 1em;
-  overflow: none;
 }
 
 nav {
@@ -33,10 +32,6 @@ nav {
 #dropDown {
   position: absolute;
   z-index: 1000;
-}
-
-#order {
-  text-align: center;
 }
 
 #content {
@@ -74,6 +69,10 @@ nav {
   padding-bottom: 20px;
   float: right;
   width: 210px;
+}
+
+#order {
+  text-align: center;
 }
 
 footer {
