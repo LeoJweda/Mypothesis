@@ -1,7 +1,11 @@
 .user-info
-  = gravatar_for user, :size => 40
-  %b #{user.full_name}
-  %br/
-  %i #{user.title}
-  at
-  %i #{user.organization}
+  %table
+    %tr
+      %td
+        = link_to gravatar_for(user, :size => 30), user
+      %td
+        %b= link_to(user.full_name, user)
+        %br
+        %i #{user.title}
+        at
+        %i #{user.organization}

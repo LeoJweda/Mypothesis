@@ -16,7 +16,7 @@ jQuery ->
   $("#dropDown").menu().hide()
   
   $("#order").buttonset()
-  $(".panel-buttonpane a").button()
+  $(".panel-buttons a").button()
   
   $(".edit").button
     text: false,
