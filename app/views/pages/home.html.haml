@@ -13,6 +13,6 @@
         = label_tag(:order_best, 'Best')
         
       = label_tag(:subject, "Subject:")
-      = render :partial => 'shared/subject'
+      = render :partial => 'shared/subject', :locals => {:allItem => true}
       
       = submit_tag("Filter")
