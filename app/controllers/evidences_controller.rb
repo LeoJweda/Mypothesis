@@ -51,9 +51,11 @@ class EvidencesController < ApplicationController
       if @evidence.save
         format.html { redirect_to @evidence.hypothesis, notice: 'Evidence was successfully created.' }
         format.json { render json: @evidence, status: :created, location: @evidence }
+        format.js
       else
         format.html { render action: "new" }
         format.json { render json: @evidence.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -83,6 +85,7 @@ class EvidencesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to @evidence.hypothesis }
       format.json { head :ok }
+      format.js   { render :nothing => true }
     end
   end
   

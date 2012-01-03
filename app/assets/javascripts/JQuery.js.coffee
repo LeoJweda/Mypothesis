@@ -16,7 +16,6 @@ jQuery ->
   $("#dropDown").menu().hide()
   
   $("#order").buttonset()
-  $(".panel-buttons a").button()
   
   $(".edit").button
     text: false,
@@ -27,6 +26,8 @@ jQuery ->
     text: false,
     icons:
       primary: "ui-icon-close"
+  .bind 'ajax:success', ->
+    $(this).closest('.panel-container').fadeOut(); 
       
   $(".upvote").button
     text: false,

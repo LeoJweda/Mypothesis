@@ -1,6 +1,6 @@
 = render :layout => 'shared/panel', :locals => {:title => @hypothesis.title,
   :buttons => render(:partial => 'hypotheses/shared/buttons', :locals => {:hypothesis => @hypothesis}),
-  :outside => render(@hypothesis.evidences)} do
+  :outside => content_tag(:div, render(@hypothesis.evidences), :id => "evidences") + render('evidences/new')} do
   
   %table
     %tr
