@@ -1,0 +1,3 @@
+$('#evidences').append("#{escape_javascript(render @evidence)}")
+$('#evidences :last-child .panel').hide().show().effect('highlight', {}, 2000)
+$('#new_evidence')[0].reset()

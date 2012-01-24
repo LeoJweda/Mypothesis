@@ -51,9 +51,11 @@ class EvidencesController < ApplicationController
       if @evidence.save
         format.html { redirect_to @evidence.hypothesis, notice: 'Evidence was successfully created.' }
         format.json { render json: @evidence, status: :created, location: @evidence }
+        format.js
       else
         format.html { render action: "new" }
         format.json { render json: @evidence.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -83,14 +85,35 @@ class EvidencesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to @evidence.hypothesis }
       format.json { head :ok }
+      format.js   { render :nothing => true }
     end
   end
   
   def up_vote
-    Evidence.find(params[:id]).vote_up current_user
+    @evidence = Evidence.find(params[:id])
+    @voted = @evidence.vote_up current_user
+    
+    respond_to do |format|
+      if @voted
+        flash[:success] = 'Upvoted'
+        format.json { render :json =>{:result => "ok", :message=>"Evidence #{params[:id]} was upvoted", :resource_id=>params[:id], :score => @evidence.score.to_s() } }
+      else
+        format.json { render :json => { :result=>"failed", :error=>"Cannot find Invitation #{params[:id]}", :resource_id=>params[:id] } }
+      end
+    end
   end
   
   def down_vote
-    Evidence.find(params[:id]).vote_down current_user
+    @evidence = Evidence.find(params[:id])
+    @voted = @evidence.vote_down current_user
+    
+    respond_to do |format|
+      if @voted
+        flash[:success] = 'Downvoted'
+        format.json { render :json =>{:result => "ok", :message=>"Evidence #{params[:id]} was downvoted", :resource_id=>params[:id], :score => @evidence.score.to_s() } }
+      else
+        format.json { render :json => { :result=>"failed", :error=>"Cannot find Invitation #{params[:id]}", :resource_id=>params[:id] } }
+      end
+    end
   end
 end

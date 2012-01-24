@@ -4,13 +4,12 @@
   %table
     %tr
       %td.panel-sidebar
-        - if current_user != nil
-          = link_to 'Up Vote', up_vote_hypothesis_evidence_path(evidence.hypothesis, evidence), :method => :put, :remote=>true, :class => 'upvote'
+        = vote_link_to evidence, 'up', (current_user != nil && (!current_user.voted_as_when_voted_for(evidence) || current_user.voted_as_when_voted_for(evidence) == nil))
         %br/
-        %b= evidence.score
+        %span.score
+          %b= evidence.score
         %br/
-        - if current_user != nil
-          = link_to 'Down Vote', down_vote_hypothesis_evidence_path(evidence.hypothesis, evidence), :method => :put, :remote=>true, :class => 'downvote'
+        = vote_link_to evidence, 'down', (current_user != nil && (current_user.voted_as_when_voted_for(evidence) || current_user.voted_as_when_voted_for(evidence) == nil))
         %br/
         - if evidence.supporting
           .positive Positive

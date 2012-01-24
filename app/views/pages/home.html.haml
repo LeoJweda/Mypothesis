@@ -5,14 +5,14 @@
   - if can? :create, Hypothesis
     = button_to 'New Hypothesis', new_hypothesis_path, :method => 'get'
   = render :layout => 'shared/panel', :locals => {:title => 'Search Hypotheses'} do
-    = form_tag(root_path, :method => 'get') do
+    = form_tag root_path, :method => 'get' do
       #order
         = radio_button_tag 'order', 'new', true
-        = label_tag(:order_new, 'New')
+        = label_tag :order_new, 'New'
         = radio_button_tag 'order', 'best', false
-        = label_tag(:order_best, 'Best')
+        = label_tag :order_best, 'Best'
         
       = label_tag(:subject, "Subject:")
       = render :partial => 'shared/subject', :locals => {:allItem => true}
       
-      = submit_tag("Filter")
+      = submit_tag "Filter", :name => nil

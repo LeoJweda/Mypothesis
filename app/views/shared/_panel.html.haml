@@ -1,4 +1,4 @@
-%div{:id => '#panel-container', :class => (local_assigns[:indented] && indented) ? 'indented' : ''}
+%div{:class => 'panel-container' + ((local_assigns[:indented] && indented) ? ' indented' : '')}
   .panel.ui-dialog.ui-widget.ui-widget-content.ui-corner-all
     .panel-header.ui-widget-header.ui-corner-all
       - if local_assigns[:title]

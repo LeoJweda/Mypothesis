@@ -1,6 +1,6 @@
 - if can? :update, evidence
   = link_to 'Edit', edit_hypothesis_evidence_path(evidence.hypothesis, evidence), :class => 'edit'
 - if can? :destroy, evidence
-  = link_to 'Destroy', hypothesis_evidence_path(evidence.hypothesis, evidence), :confirm => 'Are you sure?', :method => :delete, :class => 'delete'
+  = link_to 'Destroy', hypothesis_evidence_path(evidence.hypothesis, evidence), :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => 'delete'
   
 = render :partial => 'shared/user_info', :locals => {:user => evidence.user}
