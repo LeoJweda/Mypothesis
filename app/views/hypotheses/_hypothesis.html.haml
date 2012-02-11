@@ -1,12 +1,24 @@
-= render :layout => 'shared/panel', :locals => {:title => link_to(hypothesis.title, hypothesis),
-  :buttons => render(:partial => 'hypotheses/shared/buttons', :locals => {:hypothesis => hypothesis})} do
-  %table
-    %tr
-      %td.panel-sidebar
-        %b= hypothesis.score
-      %td
-        %p
-          = hypothesis.content
-        %p
-          %b Subject:
-          = hypothesis.subject
+.hypothesis.item
+  .row-fluid
+    .span12
+      %h3= link_to(hypothesis.title, hypothesis)
+  .row-fluid
+    .span1
+      %b= hypothesis.score
+    .span11
+      %p
+        = hypothesis.content
+      %p
+        %b Null hypothesis:
+        = hypothesis.null_hypothesis
+      %p
+        %b Subject:
+        = hypothesis.subject
+      %p
+        %b References:
+        = hypothesis.references
+  .row-fluid
+    .span10
+      = render :partial => 'shared/user_info', :locals => {:user => hypothesis.user}
+    .span2
+      = render :partial => 'hypotheses/shared/buttons', :locals => {:hypothesis => hypothesis}

@@ -1,8 +1,13 @@
 body {
-  font-size: 62.5%;
-  font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+  padding-top: 60px;
+  padding-bottom: 40px;
 }
 
+a > img {
+  vertical-align: middle;
+}
+
+/*
 input.text {
   margin-bottom: 12px;
   padding: .4em;
@@ -93,3 +98,4 @@ footer {
       }
     }
 }
+*/

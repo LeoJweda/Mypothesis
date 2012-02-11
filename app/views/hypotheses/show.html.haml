@@ -1,24 +1,28 @@
-= render :layout => 'shared/panel', :locals => {:title => @hypothesis.title,
-  :buttons => render(:partial => 'hypotheses/shared/buttons', :locals => {:hypothesis => @hypothesis}),
-  :outside => content_tag(:div, render(@hypothesis.evidences), :id => "evidences") + render('evidences/new')} do
-  
-  %table
-    %tr
-      %td.panel-sidebar
-        %b= @hypothesis.score
-      %td
-        %p
-          = @hypothesis.content
-        %p
-          %b Null hypothesis:
-          = @hypothesis.null_hypothesis
-        %p
-          %b Subject:
-          = @hypothesis.subject
-        %p
-          %b References:
-          = @hypothesis.references
-          
-- content_for :sidebar do
-  - if can? :create, Evidence
-    = button_to 'New Evidence', new_hypothesis_evidence_path(@hypothesis), :method => 'get'
+.hypothesis
+  .row-fluid
+    .span12
+      %h3= @hypothesis.title
+  .row-fluid
+    .span1
+      %b= @hypothesis.score
+    .span11
+      %p= @hypothesis.content
+      %p
+        %b Null hypothesis:
+        = @hypothesis.null_hypothesis
+      %p
+        %b Subject:
+        = @hypothesis.subject
+      %p
+        %b References:
+        = @hypothesis.references
+  .row-fluid
+    .span10
+      = render :partial => 'shared/user_info', :locals => {:user => @hypothesis.user}
+    .span2
+      = render :partial => 'hypotheses/shared/buttons', :locals => {:hypothesis => @hypothesis}
+
+%hr
+
+= render :partial => 'evidences/evidence', :collection => @hypothesis.evidences, :spacer_template => 'shared/spacer'
+= render 'evidences/new'
