@@ -1,18 +1,24 @@
 -unless Hypothesis.all.empty?
-  = render :partial => 'hypotheses/index', :locals => {:subject => params[:subject], :order => params[:order]}
+  = render :partial => 'hypotheses/hypothesis', :collection => filter_hypotheses(params[:subject], params[:order]), :spacer_template => 'shared/spacer'
 
 - content_for :sidebar do
   - if can? :create, Hypothesis
-    = button_to 'New Hypothesis', new_hypothesis_path, :method => 'get'
-  = render :layout => 'shared/panel', :locals => {:title => 'Search Hypotheses'} do
-    = form_tag root_path, :method => 'get' do
-      #order
-        = radio_button_tag 'order', 'new', true
-        = label_tag :order_new, 'New'
-        = radio_button_tag 'order', 'best', false
-        = label_tag :order_best, 'Best'
-        
-      = label_tag(:subject, "Subject:")
-      = render :partial => 'shared/subject', :locals => {:allItem => true}
+    = button_to 'New Hypothesis', new_hypothesis_path, :method => 'get', :class => 'btn btn-primary'
+  = form_tag root_path, :method => 'get', :class => 'form-inline' do
+    %legend Search Hypotheses
+    .control-group
+      %label{:for => 'order'} Order
+      .controls
+        %label.checkbox.inline
+          = radio_button_tag 'order', 'new', true
+          New
+        %label.checkbox.inline
+          = radio_button_tag 'order', 'best', false
+          Best
+    
+    .control-group
+      %label{:for => 'subject'} Subject    
+      .controls
+        = render :partial => 'shared/subject', :locals => {:allItem => true}
       
-      = submit_tag "Filter", :name => nil
+    = submit_tag "Filter", :name => nil, :class => 'btn'

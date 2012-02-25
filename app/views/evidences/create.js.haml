@@ -1,3 +1,4 @@
+$('#evidences').append('<hr/>')
 $('#evidences').append("#{escape_javascript(render @evidence)}")
-$('#evidences :last-child .panel').hide().show().effect('highlight', {}, 2000)
+$('#evidences .item:last-child').hide().fadeIn("slow")
 $('#new_evidence')[0].reset()

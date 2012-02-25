@@ -1,11 +1,9 @@
-.user-info
-  %table
-    %tr
-      %td
-        = link_to gravatar_for(user, :size => 30), user
-      %td
-        %b= link_to(user.full_name, user)
-        %br
-        %i #{user.title}
-        at
-        %i #{user.organization}
+.row
+  .span1
+    = gravatar_for(user, :size => 32)
+  .span10
+    %b= link_to(user.full_name, user)
+    %br
+    %i #{user.title}
+    at
+    %i #{user.organization}

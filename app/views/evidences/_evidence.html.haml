@@ -1,23 +1,31 @@
-= render :layout => 'shared/panel', :locals => {:indented => true, :title => evidence.title,
-  :buttons => render(:partial => 'evidences/shared/buttons', :locals => {:evidence => evidence})} do
-  
-  %table
-    %tr
-      %td.panel-sidebar
-        = vote_link_to evidence, 'up', (current_user != nil && (!current_user.voted_as_when_voted_for(evidence) || current_user.voted_as_when_voted_for(evidence) == nil))
-        %br/
-        %span.score
-          %b= evidence.score
-        %br/
-        = vote_link_to evidence, 'down', (current_user != nil && (current_user.voted_as_when_voted_for(evidence) || current_user.voted_as_when_voted_for(evidence) == nil))
-        %br/
-        - if evidence.supporting
-          .positive Positive
-        - else
-          .negative Negative
-      %td
+.evidence.item
+  .row
+    .span12.offset1
+      %h3= evidence.title
+  .row
+    .span1.offset1
+      - if current_user != nil
+        = up_vote_link_to evidence
+      %br/
+      %span.score
+        %b= evidence.score
+      %br/
+      - if current_user != nil
+        = down_vote_link_to evidence
+      %br/
+      - if evidence.supporting
+        .positive Positive
+      - else
+        .negative Negative
+    .span9
+      %p
         = evidence.content
         %br/
         %b References:
         %br/
         = evidence.references
+  .row
+    .span8.offset1
+      = render :partial => 'shared/user_info', :locals => {:user => evidence.user}
+    .span2
+      = render :partial => 'evidences/shared/buttons', :locals => {:evidence => evidence}
