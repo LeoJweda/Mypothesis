@@ -24,5 +24,11 @@
 
 %hr
 
-= render :partial => 'evidences/evidence', :collection => @hypothesis.evidences, :spacer_template => 'shared/spacer'
-= render 'evidences/new'
+#evidences
+  = render :partial => 'evidences/evidence', :collection => @hypothesis.evidences, :spacer_template => 'shared/spacer'
+
+%hr
+
+.row
+  .span11.offset1
+    = render 'evidences/new'
